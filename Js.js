@@ -1,27 +1,31 @@
 new Vue({
     el: "#FizzBuzz",
     data: {
-        num: null,
+        num: 0,
+        output:null
     },
     methods: {
-        main() {
-            for (i = 1; i < 101; i++) {
-                if (i % 3 == 0 && i % 5 == 0) {
-                    this.num = "FizzBuzz!";
-                    console.log(this.num)
-                }
-                if (i % 3 == 0) {
-                    this.num = "Fizz!";
-                    console.log(this.num)
-                }
-                else if (i % 5 == 0) {
-                    this.num = "Buzz!";
-                    console.log(this.num)
-                }
-                else {
-                    this.num = i;
-                    console.log(this.num)
-                }
+        fizzBuzz() {
+            this.num = 0;
+            let fizzBuzzCounter = setInterval(this.counter, 50);
+        },
+        counter() {
+            this.num++;
+            if (this.num == 101) {
+                clearInterval(this.fizzBuzzCounter);
+                return
+            }
+            else if (this.num % 15 == 0) {
+                this.output = "FizzBuzz!";
+            }
+            else if (this.num % 3 == 0) {
+                this.output = "Fizz!";
+            }
+            else if (this.num % 5 == 0) {
+                this.output = "Buzz!";
+            }
+            else {
+                this.output = this.num;
             }
         }
 
