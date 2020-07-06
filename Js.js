@@ -2,18 +2,19 @@ new Vue({
     el: "#FizzBuzz",
     data: {
         num: 0,
-        output:null
+        output:null,
+        fizzBuzzCounter: null,        
     },
     methods: {
         fizzBuzz() {
+            clearInterval(this.fizzBuzzCounter);
             this.num = 0;
-            let fizzBuzzCounter = setInterval(this.counter, 50);
+            this.fizzBuzzCounter = setInterval(this.counter, 1000)
         },
         counter() {
             this.num++;
             if (this.num == 101) {
                 clearInterval(this.fizzBuzzCounter);
-                return
             }
             else if (this.num % 15 == 0) {
                 this.output = "FizzBuzz!";
