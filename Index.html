@@ -11,9 +11,9 @@
 
 <body>
     <div id="FizzBuzz">
-        <transition mode="out-in" name="output">
-            <div id="output">{{output}}</div>
-        </transition>
+        <div id="insert">
+            <div id="output" v-if="showIt">{{output}}</div>
+        </div>
 
         <button @click="fizzBuzz">FizzBuzz !</button>
     </div>
