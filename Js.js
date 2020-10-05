@@ -10,11 +10,12 @@ new Vue({
         fizzBuzz() {
             clearInterval(this.fizzBuzzCounter);
             this.num = 0;
-            this.fizzBuzzCounter = setInterval(this.counter, 1000)
+            this.fizzBuzzCounter = setInterval(this.counter, 1500)
         },
-        counter() {
+        async counter() {
             this.showIt = false;
             this.num++;
+            await new Promise(r => setTimeout(r, 10));
             if (this.num == 101) {
                 clearInterval(this.fizzBuzzCounter);
             }
